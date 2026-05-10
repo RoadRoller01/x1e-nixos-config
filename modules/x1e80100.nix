@@ -85,9 +85,11 @@ in
               "pd_ignore_unused"
               "clk_ignore_unused"
 
-              # Supposed Linux local privilege escalation using this module:
+              # Linux local privilege escalation using algif_aead:
               # https://copy.fail/
-              "module_blacklist=algif_aead"
+              # Linux local privilege escalation using esp4, esp6, rxrpc:
+              # https://github.com/V4bel/dirtyfrag
+              "module_blacklist=algif_aead,esp4,esp6,rxrpc"
             ]
 
             (lib.mkIf cfg.lenovo-yoga-slim7x.enable [
